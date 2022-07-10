@@ -1,0 +1,14 @@
+<div class="book-wrap">
+
+  <% @books.each do |book| %>
+    <div class="book-box">
+
+      <div class="book-coment">
+
+        <span class="book-body"><%= book.body %></span>
+
+        <span class="book-title"><%= link_to book.title, book_path(book.id) %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
