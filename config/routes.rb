@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root "homes#top"
   get '/edit' => "books#edit"
+  get "/show" => "books#show"
   get "/books" => "books#top"
 
   patch 'books/:id' => 'books#update', as: 'update_book'
+
+  patch "books/:id" => "books#show", as: "show_book"
 
   resources :books
 
