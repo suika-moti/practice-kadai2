@@ -19,8 +19,13 @@
           <td class="book-body"><%= book.body %></td>
           <td><%= link_to book.title, book_path(book.id) %></td>
           <td>
-            <%= link_to "show", show_book_path(@books) %>
-            <%= link_to "edit", edit_book_path(@books) %>
+            <%= link_to "Show", show_book_path(@books) %>
+          </td>
+          <td>
+            <%= link_to "Edit", edit_book_path(@books) %>
+          </td>
+          <td>
+            <%= link_to "Destroy", destroy_book_path(@books), method: :delete, "data-confirm" => "Are you sure？" %>
           </td>
       </tr>
     <% end %>
