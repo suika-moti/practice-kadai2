@@ -11,7 +11,8 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book.id)
     else
-      render :new
+      @books = Book.all
+      render :top
     end
   end
 
@@ -23,10 +24,9 @@ class BooksController < ApplicationController
 
   def destroy
     book = Book.find(params[:id])
-    book.destroy(book_params)
+    book.destroy
     redirect_to "/books"
   end
-
 
   def index
     @books = Book.all
@@ -44,7 +44,5 @@ class BooksController < ApplicationController
   # ストロングパラメータ
   def book_params
     params.require(:book).permit(:title, :body)
-    
-    
   end
 end

@@ -35,7 +35,14 @@
 </table>
 
 
-
+<% if @book.errors.any? %>
+  <h4>errors happen</h4>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h1>New Book</h1>
 <%= form_with model: @book, url:"/books", method: :post do |f| %>
