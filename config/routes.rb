@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "homes#top"
   get '/edit' => "books#edit"
   get "/show" => "books#show"
-  get "/books" => "books#top"
+  get "/books" => "books#index"
 
   patch 'books/:id' => 'books#update', as: 'update_book'
 
